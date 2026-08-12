@@ -16,7 +16,7 @@ def load_b64_image(path: str):
     if not p.exists():
         return None
     try:
-        return base64.b64decode(p.read_text(encoding="utf-8").strip())
+        return base64.b64decode(p.read_text(encoding="utf-8").strip().replace("\\/", "/"))
     except Exception:
         return None
 
